@@ -1,3 +1,4 @@
+require("dotenv").config()
 koa = require "koa"
 Router = require "koa-router"
 render = require "koa-ejs"
@@ -8,13 +9,13 @@ axios = require "axios"
 koaBody = require "koa-body"
 Datastore = require "nedb-promises"
 schedule = require "node-schedule"
-
+_ = require "lodash"
 sleep = ->
 	new Promise (resolve) ->
 		setTimeout resolve, _.random(1.2, 3.2) * 1000
 
 schedule.scheduleJob "0 0 * * *", ->
-	files = async fs.readdir "./txt"
+	files = await fs.readdir "./txt"
 	for filename in files
 		try
 			rs = await fs.readFile "./txt/" + filename
@@ -22,12 +23,16 @@ schedule.scheduleJob "0 0 * * *", ->
 			if content
 				content = encodeURIComponent content
 				await axios.get(
-					"https://push.bot.qw360.cn/send/" +
-						filename.replace ".txt", ""
+					"https://push.bot.qw360.cn/send/#{filename.replace(
+						".txt"
+						""
+					)}?msg=#{content}"
 				)
 				await sleep()
 		catch e
 			# ...
+
+console.log process.env.USERDB or "./user.db"
 UserDB = Datastore.create process.env.USERDB or "./user.db"
 route = new Router()
 app = new koa()
