@@ -1,0 +1,39 @@
+{
+  "name": "push-todo",
+  "version": "1.0.0",
+  "description": "TODO LIST with 每日推送微信提醒",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tans/push-todo.git"
+  },
+  "keywords": [
+    "todo-list",
+    "todo.txt"
+  ],
+  "author": "tans",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tans/push-todo/issues"
+  },
+  "homepage": "https://github.com/tans/push-todo#readme",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "koa": "^2.13.1",
+    "koa-body": "^4.2.0",
+    "koa-ejs": "^4.3.0",
+    "koa-router": "^10.0.0",
+    "koa-static": "^5.0.0",
+    "nedb-promises": "^5.0.0",
+    "node-schedule": "^2.0.0"
+  },
+  "devDependencies": {
+    "coffeescript": "^2.5.1",
+    "prettier": "github:helixbass/prettier#prettier-v2.1.0-dev.100-gitpkg",
+    "prettier-plugin-coffeescript": "^0.1.5",
+    "wechaty-puppet-mock": "^0.28.3"
+  }
+}

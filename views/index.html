@@ -1,0 +1,36 @@
+<div id="app" style="max-width: 480px;" class="mx-auto">
+
+
+	<div class="font-18 my2 bold center">Token登陆</div>
+	<%if(typeof(msg)!='undefined' && msg){%>
+		<div class="font-18 my2 bold center"><%=msg%></div>	
+	<%}%>
+	<div class="weui-cells">
+		<div class="weui-cell">
+			<input class="weui-input" type="text" v-model="token" placeholder="输入token" />
+		</div>
+	</div>
+	<div class="my1">
+		
+		<button @click="login" id="new-btn" class="weui-btn weui-btn_primary">
+			登陆
+		</button>
+	</div>
+</div>
+
+<script type="text/javascript">
+	new Vue({
+		el: "#app",
+		data: function () {
+			return {
+				token: '',
+			};
+		},
+		methods: {
+			login: function () {
+			 	location.href="/"+this.token
+			},
+		},
+	});
+</script>
+

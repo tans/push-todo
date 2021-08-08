@@ -1,0 +1,50 @@
+<style type="text/css"></style>
+
+<div id="app">
+	<div class="weui-cells__title">一行一任务, 每日0点发送提醒</div>
+	<div class="weui-cells">
+		<div class="weui-cell">
+			<div class="weui-cell__bd">
+				<textarea
+					rows="10"
+					placeholder="一行一任务"
+					id="content"
+					class="weui-textarea"
+				><%-content%></textarea>
+			</div>
+		</div>
+	</div>
+
+	<div class="my1">
+		<button onclick="save()" class="weui-btn weui-btn_primary">保存</button>
+	</div>
+
+	<div class="weui-article">
+		<!-- <h1>使用方法</h1> -->
+		<!-- <div>一行一任务</div> -->
+		<!-- <div>2. #开头为注释</div>
+		<div>3. -开头为参数设定</div>
+		<pre style="background: #efefef">-sendtime=8:00  早上8点推送
+-sendhook=pushbot_api  推送精灵接口</pre>
+		<div>4. 每日微信准时收到TODO提醒</div> -->
+
+	</div>
+	
+</div>
+
+<script>
+	document.getElementById('content').focus()
+
+	function save (){
+		let content = document.getElementById('content').value;
+		axios.post("/saveTodo", {
+			content: content
+		}).then(function(res){
+			if(res.data.status){
+				alert('保存成功')
+				return location.reload()
+			}
+			alert(res.data.msg)
+		})
+	}
+</script>
