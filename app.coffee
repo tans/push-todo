@@ -30,7 +30,7 @@ schedule.scheduleJob "0 0 * * *", ->
 				)
 				await sleep()
 		catch e
-			# ...
+			console.log e
 
 console.log process.env.USERDB or "./user.db"
 UserDB = Datastore.create process.env.USERDB or "./user.db"
