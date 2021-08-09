@@ -3,7 +3,7 @@ TODO LIST with 每日推送微信提醒
 
 ## 使用方法
 
-1. 关注机器人， 获得推送token
+1. 关注[机器人](https://github.com/tans/push-bot)， 获得推送token
 2. 访问token的todo list页面 https://todo.bot.qw360.cn/:token 进行编辑
 3. 机器人每天推送todo list 里面的内容
 
